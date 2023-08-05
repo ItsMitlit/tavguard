@@ -2,6 +2,7 @@ const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 const token = 'TOKEN';
+const gifnum = 20; //Number of gifs you want the bot to send
 
 const gifList = [
   'https://media.discordapp.net/attachments/988862412260274176/1016882879814455357/caption.gif',
@@ -24,7 +25,7 @@ client.on('messageCreate', async (message) => {
     if (userToPing) {
       message.reply(`ur a dick <@${message.author.id}>`);
 
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < gifnum; i++) {
         const randomGif = gifList[Math.floor(Math.random() * gifList.length)];
         await message.author.send(randomGif);
       }
